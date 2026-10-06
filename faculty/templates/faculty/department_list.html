@@ -20,6 +20,7 @@
                 <ul>
                     {% for spec in department.specialties.all %}
                         <li>{{ spec.code }} - {{ spec.name }}</li>
+                        <p>Освітня програма: {{ spec.educ_program }}</p>
                     {% empty %}
                         <li class="text-muted">Немає випускових спеціальностей</li>
                     {% endfor %}

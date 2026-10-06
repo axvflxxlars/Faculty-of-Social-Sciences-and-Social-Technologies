@@ -16,6 +16,7 @@
                     <a href="{% url 'program_detail' program.id %}" class="text-decoration-none">{{ program.name }}</a>
                 </h4>
                 <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
                 <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
                 <hr>
                 <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
@@ -36,6 +37,7 @@
                     <a href="{% url 'program_detail' program.id %}" class="text-decoration-none text-success">{{ program.name }}</a>
                 </h4>
                 <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
                 <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
                 <hr>
                 <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
@@ -57,6 +59,7 @@
                     <a href="{% url 'program_detail' program.id %}" class="text-decoration-none text-danger">{{ program.name }}</a>
                 </h4>
                 <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
                 <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
                 <hr>
                 <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>

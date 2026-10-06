@@ -21,6 +21,7 @@ class Specialty(models.Model):
 
     name = models.CharField(max_length=255, verbose_name="Назва (Освітня програма)")
     code = models.CharField(max_length=50, verbose_name="Код спеціальності")
+    educ_program = models.CharField(max_length=50, verbose_name="Освітня програма")
     degree = models.CharField(max_length=20, choices=DEGREE_CHOICES, default='bachelor',
                               verbose_name="Рівень вищої освіти")
 
