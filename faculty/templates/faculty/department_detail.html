@@ -1,0 +1,47 @@
+{% extends 'faculty/base.html' %}
+
+{% block title %}{{ department.name }}{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'department_list' %}">Кафедри</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ department.name }}</li>
+  </ol>
+</nav>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">{{ department.name }}</h3>
+    </div>
+    <div class="card-body">
+        <p class="fs-5"><strong>Завідувач кафедри:</strong> {{ department.head_of_department }}</p>
+
+        <h4 class="mt-4">Викладацький склад</h4>
+        <div class="table-responsive">
+            <table class="table table-striped mt-2">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Ім'я</th>
+                        <th>Посада</th>
+                        <th>Ступінь</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in department.teachers.all %}
+                    <tr>
+                        <td>{{ teacher.name }}</td>
+                        <td>{{ teacher.position }}</td>
+                        <td>{{ teacher.degree }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">Викладачів ще не додано.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
