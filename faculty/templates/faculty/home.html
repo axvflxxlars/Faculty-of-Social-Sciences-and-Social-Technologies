@@ -1,18 +1,14 @@
-{% extends 'faculty/base.html' %}
-
+{% extends "faculty/base.html" %}
 {% block title %}Головна сторінка - ФСНСТ{% endblock %}
-
 {% block content %}
-<div class="card shadow-sm">
+  <div class="card shadow-sm">
     <div class="card-body p-5">
-        {% if content %}
-            <h1 class="card-title text-center mb-4">{{ content.title }}</h1>
-            <div class="card-text fs-5">
-                {{ content.text|linebreaksbr }}
-            </div>
-        {% else %}
-            <h1 class="text-center text-muted">Інформацію ще не додано через адмін-панель.</h1>
-        {% endif %}
+      {% if content %}
+        <h1 class="card-title text-center mb-4">{{ content.title }}</h1>
+        <div class="card-text fs-5">{{ content.text|linebreaksbr }}</div>
+      {% else %}
+        <h1 class="text-center text-muted">Інформацію ще не додано через адмін-панель.</h1>
+      {% endif %}
     </div>
-</div>
+  </div>
 {% endblock %}

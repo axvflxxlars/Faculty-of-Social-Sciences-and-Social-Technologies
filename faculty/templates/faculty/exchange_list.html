@@ -1,31 +1,30 @@
-{% extends 'faculty/base.html' %}
+{% extends "faculty/base.html" %}
 {% block title %}Програми обміну{% endblock %}
-
 {% block content %}
-<h1 class="mb-4">Програми академічного обміну</h1>
-<div class="row">
+  <h1 class="mb-4">Програми академічного обміну</h1>
+  <div class="row">
     {% for program in programs %}
-    <div class="col-md-6 mb-4">
+      <div class="col-md-6 mb-4">
         <div class="card h-100 shadow-sm border-0 bg-white">
-            <div class="card-body">
-                <h4 class="card-title">{{ program.university }}</h4>
-                <h6 class="text-muted mb-3"><i class="bi bi-geo-alt"></i> Країна: {{ program.country }}</h6>
-                <p>{{ program.description }}</p>
-                <ul class="list-unstyled">
-                    <li><strong>Мови:</strong> {{ program.languages }}</li>
-                    <li><strong>Місць:</strong> {{ program.places }}</li>
-                    <li><strong>Дедлайн:</strong> {{ program.deadline|date:"d.m.Y" }}</li>
-                </ul>
-            </div>
-            <div class="card-footer bg-transparent border-0 pb-3">
-                {% if program.is_active %}
-                    <span class="badge bg-success py-2 px-3">Прийом триває</span>
-                {% else %}
-                    <span class="badge bg-secondary py-2 px-3">Прийом завершено</span>
-                {% endif %}
-            </div>
+          <div class="card-body">
+            <h4 class="card-title">{{ program.university }}</h4>
+            <h6 class="text-muted mb-3"><i class="bi bi-geo-alt"></i> Країна: {{ program.country }}</h6>
+            <p>{{ program.description }}</p>
+            <ul class="list-unstyled">
+              <li><strong>Мови:</strong> {{ program.languages }}</li>
+              <li><strong>Місць:</strong> {{ program.places }}</li>
+              <li><strong>Дедлайн:</strong> {{ program.deadline|date:"d.m.Y" }}</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            {% if program.is_active %}
+              <span class="badge bg-success py-2 px-3">Прийом триває</span>
+            {% else %}
+              <span class="badge bg-secondary py-2 px-3">Прийом завершено</span>
+            {% endif %}
+          </div>
         </div>
-    </div>
+      </div>
     {% endfor %}
-</div>
+  </div>
 {% endblock %}

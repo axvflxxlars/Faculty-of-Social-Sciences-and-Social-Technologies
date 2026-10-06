@@ -1,35 +1,31 @@
-{% extends 'faculty/base.html' %}
-
+{% extends "faculty/base.html" %}
 {% block title %}Кафедри{% endblock %}
-
 {% block content %}
-<h2 class="mb-4">Кафедри факультету</h2>
-<div class="row">
+  <h2 class="mb-4">Кафедри факультету</h2>
+  <div class="row">
     {% for department in departments %}
-    <div class="col-md-12 mb-3">
+      <div class="col-md-12 mb-3">
         <div class="card shadow-sm">
-            <div class="card-body">
-                <h4 class="card-title">
-                    <a href="{% url 'department_detail' department.id %}" class="text-decoration-none">
-                        {{ department.name }}
-                    </a>
-                </h4>
-                <p class="mb-2"><strong>Завідувач:</strong> {{ department.head_of_department }}</p>
-
-                <strong>Випускові спеціальності:</strong>
-                <ul>
-                    {% for spec in department.specialties.all %}
-                        <li>{{ spec.code }} - {{ spec.name }}</li>
-                        <p>Освітня програма: {{ spec.educ_program }}</p>
-                    {% empty %}
-                        <li class="text-muted">Немає випускових спеціальностей</li>
-                    {% endfor %}
-                </ul>
-            </div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="{% url 'department_detail' department.id %}"
+                 class="text-decoration-none">{{ department.name }}</a>
+            </h4>
+            <p class="mb-2"><strong>Завідувач:</strong> {{ department.head_of_department }}</p>
+            <strong>Випускові спеціальності:</strong>
+            <ul>
+              {% for spec in department.specialties.all %}
+                <li>{{ spec.code }} - {{ spec.name }}</li>
+                <p>Освітня програма: {{ spec.educ_program }}</p>
+              {% empty %}
+                <li class="text-muted">Немає випускових спеціальностей</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-    </div>
+      </div>
     {% empty %}
-    <p class="text-muted">Кафедри ще не додані.</p>
+      <p class="text-muted">Кафедри ще не додані.</p>
     {% endfor %}
-</div>
+  </div>
 {% endblock %}
