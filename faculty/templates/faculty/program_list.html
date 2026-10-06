@@ -1,0 +1,68 @@
+{% extends "faculty/base.html" %}
+{% block title %}Спеціальності{% endblock %}
+{% block content %}
+  <h1 class="mb-5 text-center">Освітні програми факультету</h1>
+  <h2 class="mb-4 text-primary border-bottom pb-2">Бакалаврат</h2>
+  <div class="row mb-5">
+    {% for program in bachelors %}
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-primary border-opacity-25">
+          <div class="card-body">
+            <h4 class="card-title text-primary">
+              <a href="{% url 'program_detail' program.id %}"
+                 class="text-decoration-none">{{ program.name }}</a>
+            </h4>
+            <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
+            <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
+            <hr>
+            <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
+            <p class="mb-0 small"><strong>Контакти:</strong> <a href="mailto:{{ program.coordinator_contact }}">{{ program.coordinator_contact }}</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <h2 class="mb-4 text-success border-bottom pb-2">Магістратура</h2>
+  <div class="row mb-5">
+    {% for program in masters %}
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-success border-opacity-25">
+          <div class="card-body">
+            <h4 class="card-title text-success">
+              <a href="{% url 'program_detail' program.id %}"
+                 class="text-decoration-none text-success">{{ program.name }}</a>
+            </h4>
+            <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
+            <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
+            <hr>
+            <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
+            <p class="mb-0 small"><strong>Контакти:</strong> <a href="mailto:{{ program.coordinator_contact }}">{{ program.coordinator_contact }}</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <h2 class="mb-4 text-danger border-bottom pb-2">Аспірантура (Докторантура)</h2>
+  <div class="row">
+    {% for program in phds %}
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-danger border-opacity-25">
+          <div class="card-body">
+            <h4 class="card-title text-danger">
+              <a href="{% url 'program_detail' program.id %}"
+                 class="text-decoration-none text-danger">{{ program.name }}</a>
+            </h4>
+            <h6 class="card-subtitle mb-2 text-muted">Спеціальність {{ program.code }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Освітня програма: {{ program.educ_program }}</h6>
+            <p class="card-text mt-3 text-muted">{{ program.description|truncatewords:40 }}</p>
+            <hr>
+            <p class="mb-1 small"><strong>Координатор:</strong> {{ program.coordinator_name }}</p>
+            <p class="mb-0 small"><strong>Контакти:</strong> <a href="mailto:{{ program.coordinator_contact }}">{{ program.coordinator_contact }}</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
